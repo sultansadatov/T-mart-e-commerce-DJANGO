@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- Start Login Register Area -->
+<div class="htc__login__register bg__white ptb--130"
+    style="background: rgba(0, 0, 0, 0) url(images/bg/5.jpg) no-repeat scroll center center / cover ;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <ul class="login__register__menu" role="tablist">
+                    <!-- <li role="presentation" class="login active"><a href="#login" role="tab" data-toggle="tab">Login</a></li> -->
+                    <li role="presentation" class="register"><a href="#register" role="tab"
+                            data-toggle="tab">Register</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- <div id="register" role="tabpanel" class="single__tabs__panel tab-pane fade">
+            <form class="login" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                {{ register_form.username }}
+                {{ register_form.email }}
+                {{ register_form.password}}
+
+                <input type="text" placeholder="Username*">
+                <input type="email" placeholder="Email*">
+                <input type="password" placeholder="Password*"> -->
+        <!-- </form>
+            <div class="htc__login__btn">
+                <a href="#">register</a>
+            </div>
+         </div> --> 
+        <!-- <h3>Register here</h3>
+        <hr> -->
+
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            {% for field in form %}
+            <div>
+                <p>{{ field.label }}: <br> {{ field }}</p>
+
+                {% for error in field.errors %}
+                <small style="color: red">{{ error }}</small>
+                {% endfor %}
+            </div>
+            {% endfor %}
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

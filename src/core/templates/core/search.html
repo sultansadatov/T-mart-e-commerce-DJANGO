@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<!-- {% for product in products %}
+<h1>{{ product.product_name }}</h1>
+{% endfor %} -->
+{% for product in products %}
+<div class="col-md-3 single__pro col-lg-3 cat--1 col-sm-4 col-xs-12" style="margin-left: 40%;">
+    <div class="product foo">
+        <div class="product__inner">
+            <div class="pro__thumb">
+                <a href="#">
+
+                    <img src="{{ product.main_image.media.url }}" alt="product images" style="height: 200px; width: 200px;">
+                </a>
+            </div>
+            <div class="product__hover__info">
+                <ul class="product__action">
+                    <li><a data-toggle="modal" data-target="#productModal{{product.id}}" title="Quick View"
+                            class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
+                    <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
+                    <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="product__details">
+            <h2><a href="/products/{{product.id}}">{{product.product_name}} </a></h2>
+            <ul class="product__price">
+                <li class="old__price"> ${{ product.old_price }}</li>
+                <li class="new__price"> ${{ product.price }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endfor %}
+
+
+<br>
+<div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- Start Bradcaump area -->
+<div class="ht__bradcaump__area"
+    style="background: rgba(0, 0, 0, 0) url(images/bg/2.jpg) no-repeat scroll center center / cover ;">
+    <div class="ht__bradcaump__wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="bradcaump__inner text-center">
+                        <h2 class="bradcaump-title">Blog</h2>
+                        <nav class="bradcaump-inner">
+                            <a class="breadcrumb-item" href="index.html">Home</a>
+                            <span class="brd-separetor">/</span>
+                            <span class="breadcrumb-item active">Blog</span>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Bradcaump area -->
+<!-- Start BLog Area -->
+<div class="htc__blog__area bg__white ptb--120">
+    <div class="container">
+        <div class="row">
+            <div class="blog__wrap blog--page clearfix">
+                <!-- Start Single Blog -->
+                {% for blog in blogs %}
+                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+                    <div class="blog foo">
+                        <div class="blog__inner">
+                            <div class="blog__thumb">
+                                <a href="blog-details.html">
+                                    <img src="{{ blog.main_image.media.url }}" alt="blog images">
+                                </a>
+                                <div class="blog__post__time">
+                                    <div class="post__time--inner">
+                                        <span class="date">{{blog.created_at|date:"j F"}}</span>
+                                        <!-- <span class="month">sep</span> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog__hover__info">
+                                <div class="blog__hover__action">
+                                    <p class="blog__des"><a href="/blogs/{{blog.id}}">{{blog.header}}
+                                        </a></p>
+                                    <ul class="bl__meta">
+                                        <li>By :<a href="#">Admin</a></li>
+                                        <li>{{blog.title}}</li>
+                                    </ul>
+                                    <div class="blog__btn">
+                                        <a class="read__more__btn" href="blog-details.html">read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- End Single Blog -->
+
+            </div>
+        </div>
+        <!-- Start Load More BTn -->
+        <br>
+        <br>
+        <form action="" method="post" >
+            {%csrf_token%}
+            <input type="hidden" name="more-blog" value="{{count}}">
+            <button type="submit"  class="news-btn" style="margin-left: 40%;">
+        
+                Load More
+        
+            </button>
+        
+        </form>
+       
+        <!-- End Load More BTn -->
+    </div>
+</div>
+
+<!-- End BLog Area -->
+{% endblock %}

@@ -1,0 +1,290 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<body>
+    <!-- Start Bradcaump area -->
+    <div class="ht_bradcaump_area"
+        style="background: rgba(0, 0, 0, 0) url(images/bg/2.jpg) no-repeat scroll center center / cover ;">
+        <div class="ht_bradcaump_wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="bradcaump__inner text-center">
+                            <h2 class="bradcaump-title">Checkout</h2>
+                            <nav class="bradcaump-inner">
+                                <a class="breadcrumb-item" href="index.html">Home</a>
+                                <span class="brd-separetor">/</span>
+                                <span class="breadcrumb-item active">Checkout</span>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Bradcaump area -->
+    <!-- Start Checkout Area -->
+    <section class="our-checkout-area ptb--120 bg__white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-lg-8">
+                    <form id="form" class="ckeckout-left-sidebar">
+                        <!-- Start Checkbox Area -->
+                        <div id="shipping-info" class="checkout-form">
+                            <h2 class="section-title-3">Billing details</h2>
+                            <div class="checkout-form-inner">
+                                <!-- <div class="single-checkout-box">
+                                    <input type="text" placeholder="First Name*">
+                                    <input type="text" placeholder="Last Name*">
+                                </div> -->
+                                <div class="single-checkout-box">
+                                    <!-- <input type="email" placeholder="Email*"> -->
+                                    <input name="phone" type="text" placeholder="Phone*">
+                                </div>
+                                <div class="single-checkout-box">
+                                    <textarea name="message" placeholder="Message*"></textarea>
+                                </div>
+                                <div class="single-checkout-box select-option mt--40" >
+                                    <select id="country" name="country">
+                                        <option value="1">Country*</option>
+                                        <option  value="2">Banggladesh</option>
+                                        <option value="3">Banglahdesh</option>
+                                        <option value="14">Bangladefsh</option>
+                                        <option value="16">Bangladhesh</option>
+                                    </select>
+                                </div>
+                                <div class="single-checkout-box">
+                                    <input name="city" type="text" placeholder="City*">
+                                    <input name="state" type="text" placeholder="State*">
+
+                                    <input name="address" type="text" placeholder="Address" > 
+                                    <input name="zipcode" type="text" placeholder="Zip Code*">
+                                </div>
+                                <!-- <div class="single-checkout-box checkbox">
+                                    <input id="remind-me" type="checkbox">
+                                    <label for="remind-me"><span></span>Create a Account ?</label>
+                                </div> -->
+                            </div>
+                            <input id="form-button" type="submit" value="Confirm Above data" >
+                        </div></form>
+                        <!-- End Checkbox Area -->
+                        <!-- Start Payment Box -->
+                      
+                        <div class="hidden" id="payment-info"> 
+                                                    <div class="payment-form">
+                            <h2 class="section-title-3">payment details</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur kgjhyt</p>
+                            <div class="payment-form-inner">
+                                <div class="single-checkout-box">
+                                    <input type="text" placeholder="Name on Card*">
+                                    <input type="text" placeholder="Card Number*">
+                                </div>
+                                <div class="single-checkout-box select-option">
+                                    <select>
+                                        <option>Date*</option>
+                                        <option>Date</option>
+                                        <option>Date</option>
+                                        <option>Date</option>
+                                        <option>Date</option>
+                                    </select>
+                                    <input type="text" placeholder="Security Code*">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Payment Box -->
+                        <!-- Start Payment Way -->
+                        <div class="our-payment-sestem">
+                            <h2 class="section-title-3">We Accept :</h2>
+                            <ul class="payment-menu">
+                                <li><a href="#"><img src="{% static 'images/payment/1.jpg' %}" alt="payment-img"></a>
+                                </li>
+                                <li><a href="#"><img src="{% static 'images/payment/2.jpg' %}" alt="payment-img"></a>
+                                </li>
+                                <li><a href="#"><img src="{% static 'images/payment/3.jpg' %}" alt="payment-img"></a>
+                                </li>
+                                <li><a href="#"><img src="{% static 'images/payment/4.jpg' %}" alt="payment-img"></a>
+                                </li>
+                                <li><a href="#"><img src="{% static 'images/payment/5.jpg' %}" alt="payment-img"></a>
+                                </li>
+                            </ul>
+                            <div class="checkout-btn">
+                                <a class="ts-btn btn-light btn-large hover-theme" href="#">CONFIRM & BUY NOW</a>
+                            </div>
+                            <button id="make-payment">  Make Payment </button>
+                        </div> </div>
+                    
+                        <!-- End Payment Way -->
+
+                        <div class="box-element hidden" id="payment-infom">
+                            <small>Paypal Options</small>
+                            <div id="paypal-button-container"></div>
+            
+                            <button id="make-paymentm">  Make Payment </button>
+
+                        </div>
+                    
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <div class="checkout-right-sidebar">
+                        <div class="our-important-note">
+                            <h2 class="section-title-3">Note :</h2>
+                            <p class="note-desc">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do
+                                eiusmod tempor incididunt ut laborekf et dolore magna aliqua.</p>
+                            <ul class="important-note">
+                                <li><a href="#"><i class="zmdi zmdi-caret-right-circle"></i>Lorem ipsum dolor sit
+                                        amet, consectetur nipabali</a></li>
+                                <li><a href="#"><i class="zmdi zmdi-caret-right-circle"></i>Lorem ipsum dolor sit
+                                        amet</a></li>
+                                <li><a href="#"><i class="zmdi zmdi-caret-right-circle"></i>Lorem ipsum dolor sit
+                                        amet, consectetur nipabali</a></li>
+                                <li><a href="#"><i class="zmdi zmdi-caret-right-circle"></i>Lorem ipsum dolor sit
+                                        amet, consectetur nipabali</a></li>
+                                <li><a href="#"><i class="zmdi zmdi-caret-right-circle"></i>Lorem ipsum dolor sit
+                                        amet</a></li>
+                            </ul>
+                        </div>
+                        <div class="puick-contact-area mt--60">
+                            <h2 class="section-title-3">Quick Contract</h2>
+                            <a href="phone:+8801722889963">+012 345 678 102 </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Checkout Area -->
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+
+	<script>
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+
+            // Set up the transaction
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '88.44'
+                        }
+                    }]
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(orderData) {
+                    // Successful capture! For demo purposes:
+                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                    var transaction = orderData.purchase_units[0].payments.captures[0];
+                    alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+
+                    // Replace the above to show a success message within this page, e.g.
+                    // const element = document.getElementById('paypal-button-container');
+                    // element.innerHTML = '';
+                    // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                    // Or go to another URL:  actions.redirect('thank_you.html');
+                });
+            }
+
+
+        }).render('#paypal-button-container');
+    </script>
+    <script type="text/javascript">
+
+
+        // var shipping ='{{order.shipping}}'
+var total='{{order.get_cart_total|floatformat:2}}'
+        // if(shipping=='False'){
+        //     document.getElementById('shipping-info').innerHTML=''
+        // }
+        
+        // if(user!='AnonymousUser'){
+        //     document.getElementById('user-info').innerHTML=''
+        // }
+        
+        // if(shipping=='False' && user!='AnonymousUser'){
+        //     document.getElementById('form-wrapper').classList.add("hidden")
+        //     document.getElementById('payment-info').classList.remove("hidden")
+        // }
+        
+
+document.getElementById('make-paymentm').addEventListener('click', function(e){
+		submitFormData()
+	})
+        
+        
+
+var form=document.getElementById('form')
+        form.addEventListener('submit',function(e){
+            e.preventDefault()
+            console.log('Form submitted....')
+            // document.getElementById('form-button').classList.add('hidden')
+            document.getElementById('payment-infom').classList.remove("hidden")
+            
+        })
+        
+function submitFormData(){
+console.log('Payment button clicked')
+
+var userFormData={
+    'name':null,
+    'email':null,
+    'total':total,
+}
+var shippingInfo={
+    'address':null,
+    'city':null,
+    'state':null,
+    'zipcode':null,
+    'phone':null,
+    'message':null,
+    'country':null,
+
+}
+
+
+shippingInfo.address=form.address.value
+shippingInfo.city=form.city.value
+shippingInfo.state=form.state.value
+
+var e = document.getElementById("country");
+var value = e.value;
+var country_text = e.options[e.selectedIndex].text;
+console.log(country_text)
+console.log(e.value)
+
+shippingInfo.country=country_text
+shippingInfo.zipcode=form.zipcode.value
+shippingInfo.address=form.address.value
+shippingInfo.phone=form.phone.value
+shippingInfo.message=form.message.value
+
+
+console.log('Shipping-info:',shippingInfo)
+console.log('userFormData:',userFormData)
+
+
+var url='/process_order/'
+fetch(url,{
+    method:'POST',
+    headers:{
+        'Content-Type':'application/json',
+        'X-CSRFToken':csrftoken,
+    },
+    body:JSON.stringify({'form':userFormData,'shipping':shippingInfo}),
+})
+.then((response)=>response.json())
+.then((data)=>{
+    console.log('Success',data)
+    alert('Transaction Complete')
+    window.location.href="{% url 'product:shop' %}"
+})
+
+}
+
+
+
+
+    </script>
+    {% endblock %}

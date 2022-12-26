@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- Start Bradcaump area -->
+<div class="ht_bradcaump_area"
+    style="background: rgba(0, 0, 0, 0) url(images/bg/2.jpg) no-repeat scroll center center / cover ;">
+    <div class="ht_bradcaump_wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="bradcaump__inner text-center">
+                        <h2 class="bradcaump-title">Cart</h2>
+                        <nav class="bradcaump-inner">
+                            <a class="breadcrumb-item" href="index.html">Home</a>
+                            <span class="brd-separetor">/</span>
+                            <span class="breadcrumb-item active">Cart</span>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Bradcaump area -->
+<!-- cart-main-area start -->
+<div class="cart-main-area ptb--120 bg__white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <form action="#">
+                    <div class="table-content table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="product-thumbnail">Image</th>
+                                    <th class="product-name">Product</th>
+                                    <th class="product-price">Price</th>
+                                    <th class="product-quantity">Quantity</th>
+                                    <th class="product-subtotal">Total</th>
+                                    <th class="product-remove"> Add/ Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in items %}
+                                <tr>
+                                    <td class="product-thumbnail"><a href="#"><img src="{{ item.product.main_image.media.url }}"
+                                               
+                                                 alt="product img" /></a></td>
+                                    <td class="product-name"><a href="#">{{item.product.product_name}} </a></td>
+                                    <td class="product-price"><span class="amount">{{item.product.price|floatformat:2}}</span></td>
+                                    <td class="product-quantity">{{item.quantity}} 
+                                        <!-- <input type="number" value="{{item.quantity}}" /> -->
+                                    </td>
+                                    <td class="product-subtotal">${{item.get_total}}</td>
+                                    <td class="product-remove "> 
+                                   <svg data-product="{{item.product.id}}" data-action="add" class=" update-cart"
+                                        width="20"
+                                        height="20"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/></svg>
+                                    <svg  data-product="{{item.product.id}}" data-action="remove" class=" update-cart"
+                                    width="20"
+                                    height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
+                                    
+                                </td>
+
+                                   
+                                </tr>
+                                {% endfor %}
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-sm-7 col-xs-12">
+                            <div class="buttons-cart">
+                                <input type="submit" value="Update Cart" />
+                                <a href="/shop">Continue Shopping</a>
+                            </div>
+                            <div class="coupon">
+                                <h3>Coupon</h3>
+                                <p>Enter your coupon code if you have one.</p>
+                                <input type="text" placeholder="Coupon code" />
+                                <input type="submit" value="Apply Coupon" />
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-5 col-xs-12">
+                            <div class="cart_totals">
+                                <h2>Cart Totals</h2>
+                                <table>
+                                    <tbody>
+                                        <tr class="cart-subtotal">
+                                            <th>Subtotal</th>
+                                            <td><span class="amount">${{order.get_cart_total|floatformat:2}}</span></td>
+                                        </tr>
+                                        <tr class="shipping">
+                                            <th>Shipping</th>
+                                            <td>
+                                                <!--<ul id="shipping_method"> -->
+                                                    <!-- <li>
+                                                        <input type="radio" />
+                                                        <label>
+                                                            Flat Rate: <span class="amount">£7.00</span>
+                                                        </label>
+                                                    </li> -->
+                                                    <!-- <li> -->
+                                                        <!-- <input type="radio" /> -->
+                                                        <label>
+                                                            Free Shipping
+                                                        </label>
+                                                    <!-- </li> -->
+                                                    <!-- <li></li>
+                                                </ul>
+                                                <p><a class="shipping-calculator-button" href="#">Calculate Shipping</a>
+                                                </p> -->
+                                            </td>
+                                        </tr>
+                                        <tr class="order-total">
+                                            <th>Total</th>
+                                            <td>
+                                                <strong><span class="amount">{{order.get_cart_total|floatformat:2}}</span></strong>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="wc-proceed-to-checkout">
+                                    <a href="/checkout">Proceed to Checkout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- cart-main-area end -->
+{% endblock %}

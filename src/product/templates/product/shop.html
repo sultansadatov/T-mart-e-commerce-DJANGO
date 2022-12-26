@@ -1,0 +1,271 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- Start Bradcaump area -->
+<div class="ht_bradcaump_area"
+    style="background: rgba(0, 0, 0, 0) url(images/bg/2.jpg) no-repeat scroll center center / cover ;">
+    <div class="ht_bradcaump_wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="bradcaump__inner text-center">
+                        <h2 class="bradcaump-title">Shop Page</h2>
+                        <nav class="bradcaump-inner">
+                            <a class="breadcrumb-item" href="index.html">Home</a>
+                            <span class="brd-separetor">/</span>
+                            <span class="breadcrumb-item active">Shop Page</span>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Bradcaump area -->
+<!-- Start Our Product Area -->
+<section class="htc_productarea shoppage ptb--130 bg_white">
+    <div class="container">
+        <div class="htc_product_container">
+            <!-- Start Product MEnu -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="filter_menu_container">
+                        <div class="product__menu" style="display:flex ;">
+                            <a href="{% url 'product:shop'%}">All</a>
+                           
+                            <!-- {% for brand in brands%}
+                            <li><a href="{% /shop?brand={{brand.name}}" >{{brand.name}}</a></li>
+                            {% endfor %} -->
+                            <!-- <button data-filter=".cat--2">Bags</button>
+                            <button data-filter=".cat--3">Decoration</button>
+                            <button data-filter=".cat--4">Accessories</button> -->
+                            <!-- class="tag_selector" -->
+                        </div>
+                        <div class="filter__box">
+                            <a class="filter__menu" href="#">filter</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Filter Menu -->
+            <div class="filter__wrap">
+                <div class="filter__cart">
+                    <div class="filter_cart_inner">
+                        <div class="filter_menuclose_btn">
+                            <a href="#"><i class="zmdi zmdi-close"></i></a>
+                        </div>
+                        <div class="filter__content">
+                            <!-- Start Single Content -->
+                            <div class="fiter_content_inner">
+                                <div class="single__filter">
+                                    <h2>Sort By</h2>
+                                    <ul class="filter__list">
+                                        {% for brand in brands%}
+                                        <li><a href="{% url 'product:shop'%}?brand={{brand.name}}" >{{brand.name}}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <div class="single__filter">
+                                    <h2>Size</h2>
+                                    <ul class="filter__list">
+                                        {% for size in sizes%}
+                                        <li><a href="{% url 'product:shop'%}?size={{size.name}}" >{{size.name}}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <!-- <div class="single__filter">
+                                    <h2>Tags</h2>
+                                    <ul class="filter__list">
+                                        <li><a href="#">All</a></li>
+                                        <li><a href="#">Accessories</a></li>
+                                        <li><a href="#">Bags</a></li>
+                                        <li><a href="#">Chair</a></li>
+                                        <li><a href="#">Decoration</a></li>
+                                        <li><a href="#">Fashion</a></li>
+                                    </ul>
+                                </div> -->
+                                <div class="single__filter">
+                                    <h2>Color</h2>
+                                    <ul class="filter__list">
+                                        {% for color in colors%}
+                                        <li><a href="{% url 'product:shop'%}?color={{color.name}}" >{{color.name}}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <div class="single__filter">
+                                    <h2>Price</h2>
+                                    <ul class="filter__list">
+                                                                          
+                                        <li><a href="{% url 'product:shop'%}?min_price=0&max_price=50">$0 - $50</a></li>         
+                                        <li><a href="{% url 'product:shop'%}?min_price=50&max_price=100">$50 - $100</a></li>
+                                        
+                                    </ul>
+                                </div>
+                               
+                            </div>
+                            <!-- End Single Content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Filter Menu -->
+            <!-- End Product MEnu -->
+            <div class="row">
+                <div class="product__list another-product-style">
+                    <!-- Start Single Product -->
+                    {% for product in products %}
+                    <div class="col-md-3 single__pro col-lg-3 cat--1 col-sm-4 col-xs-12">
+                        <div class="product foo">
+                            <div class="product__inner">
+                                <div class="pro__thumb">
+                                    <a href="#">
+
+                                        <img src="{{ product.main_image.media.url }}" alt="product images">
+                                    </a>
+                                </div>
+                                <div class="product_hover_info">
+                                    <ul class="product__action">
+                                        <li><a data-toggle="modal" data-target="#productModal{{product.id}}"
+                                                title="Quick View" class="quick-view modal-view detail-link"
+                                                href="#"><span class="ti-plus"></span></a></li>
+                                        <li><a title="Add TO Cart" href="cart.html"><span
+                                                    class="ti-shopping-cart"></span></a></li>
+                                        <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product__details">
+                                <h2><a href="/products/{{product.id}}">{{product.product_name}} </a></h2>
+                                <ul class="product__price">
+                                    <!-- <li class="old__price"> ${{ product.old_price }}</li> -->
+                                    <li class="new__price"> ${{ product.price }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="quickview-wrapper">
+                        <!-- Modal -->
+                        <div class="modal fade" id="productModal{{product.id}}" tabindex="-1" role="dialog">
+                            <div class="modal-dialog modal__container" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="modal-product">
+                                            <!-- Start product images -->
+                                            <div class="product-images">
+                                                <div class="main-image images">
+                                                    <img alt="big images" src="{{ product.main_image.media.url }}">
+                                                </div>
+                                            </div>
+                                            <!-- end product images -->
+                                            <div class="product-info">
+                                                <h1>{{product.product_name}}</h1>
+                                                <div class="rating_and_review">
+                                                    <ul class="rating">
+                                                        <li><span class="ti-star"></span></li>
+                                                        <li><span class="ti-star"></span></li>
+                                                        <li><span class="ti-star"></span></li>
+                                                        <li><span class="ti-star"></span></li>
+                                                        <li><span class="ti-star"></span></li>
+                                                    </ul>
+                                                    <div class="review">
+                                                        <a href="#">4 customer reviews</a>
+                                                    </div>
+                                                </div>
+                                                <div class="price-box-3">
+                                                    <div class="s-price-box">
+                                                        <span class="new__price"> ${{ product.price }}</span>
+                                                        <span class="old-price">$45.00</span>
+                                                    </div>
+                                                </div>
+                                                <div class="quick-desc">
+                                                    Designed for simplicity and made from high quality materials. Its
+                                                    sleek geometry and
+                                                    material combinations creates a modern look.
+                                                </div>
+                                                <div class="select__color">
+                                                    <h2>Select color</h2>
+                                                    <ul class="color__list">
+                                                        <li class="red"><a title="Red" href="#">Red</a></li>
+                                                        <li class="gold"><a title="Gold" href="#">Gold</a></li>
+                                                        <li class="orange"><a title="Orange" href="#">Orange</a></li>
+                                                        <li class="orange"><a title="Orange" href="#">Orange</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="select__size">
+                                                    <h2>Select size</h2>
+                                                    <ul class="color__list">
+                                                        <li class="l__size"><a title="L" href="#">L</a></li>
+                                                        <li class="m__size"><a title="M" href="#">M</a></li>
+                                                        <li class="s__size"><a title="S" href="#">S</a></li>
+                                                        <li class="xl__size"><a title="XL" href="#">XL</a></li>
+                                                        <li class="xxl__size"><a title="XXL" href="#">XXL</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="social-sharing">
+                                                    <div class="widget widget_socialsharing_widget">
+                                                        <h3 class="widget-title-modal">Share this product</h3>
+                                                        <ul class="social-icons">
+                                                            <li><a target="_blank" title="rss" href="#"
+                                                                    class="rss social-icon"><i
+                                                                        class="zmdi zmdi-rss"></i></a></li>
+                                                            <li><a target="_blank" title="Linkedin" href="#"
+                                                                    class="linkedin social-icon"><i
+                                                                        class="zmdi zmdi-linkedin"></i></a></li>
+                                                            <li><a target="_blank" title="Pinterest" href="#"
+                                                                    class="pinterest social-icon"><i
+                                                                        class="zmdi zmdi-pinterest"></i></a>
+                                                            </li>
+                                                            <li><a target="_blank" title="Tumblr" href="#"
+                                                                    class="tumblr social-icon"><i
+                                                                        class="zmdi zmdi-tumblr"></i></a></li>
+                                                            <li><a target="_blank" title="Pinterest" href="#"
+                                                                    class="pinterest social-icon"><i
+                                                                        class="zmdi zmdi-pinterest"></i></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="addtocart-btn">
+                                                    <a class="update-cart" data-product="{{product.id}}"
+                                                        data-action="add" href="#">Add to cart</a>
+                                                </div>
+                                            </div><!-- .product-info -->
+                                        </div><!-- .modal-product -->
+                                    </div><!-- .modal-body -->
+                                </div><!-- .modal-content -->
+                            </div><!-- .modal-dialog -->
+                        </div>
+                        <!-- END Modal -->
+                    </div>
+
+                    {% endfor %}
+                    <!-- End Single Product -->
+
+                </div>
+            </div>
+            <!-- Start Load More BTn -->
+            <div class="row mt--60">
+                <div class="col-md-12">
+                    <div class="htc_loadmore_btn">
+                        <a href="#">load more</a>
+                    </div>
+                </div>
+            </div>
+            <!-- End Load More BTn -->
+        </div>
+    </div>
+</section>
+<!-- End Our Product Area -->
+
+</div>
+<!-- Body main wrapper end -->
+<!-- QUICKVIEW PRODUCT -->
+
+<!-- END QUICKVIEW PRODUCT -->
+{% endblock %}
